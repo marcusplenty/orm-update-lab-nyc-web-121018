@@ -61,6 +61,7 @@ describe "Student" do
       jane.save
       jane_id = jane.id
       jane.name = "Jane Smith"
+      jane.grade = "9th"
       jane.save
       jane_from_db = DB[:conn].execute("SELECT * FROM students WHERE id = ?", jane_id)
 
