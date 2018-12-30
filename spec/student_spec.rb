@@ -1,5 +1,5 @@
 require "spec_helper"
-
+require "pry"
 describe "Student" do
 
   let(:josh) {Student.new("Josh", "9th")}
@@ -62,6 +62,7 @@ describe "Student" do
       jane_id = jane.id
       jane.name = "Jane Smith"
       jane.save
+      binding.pry
       jane_from_db = DB[:conn].execute("SELECT * FROM students WHERE id = ?", jane_id)
       expect(jane_from_db[0][1]).to eq("Jane Smith")
     end
