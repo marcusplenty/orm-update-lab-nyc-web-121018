@@ -62,8 +62,8 @@ describe "Student" do
       jane_id = jane.id
       jane.name = "Jane Smith"
       jane.save
-      binding.pry
       jane_from_db = DB[:conn].execute("SELECT * FROM students WHERE id = ?", jane_id)
+      binding.pry
       expect(jane_from_db[0][1]).to eq("Jane Smith")
     end
   end
